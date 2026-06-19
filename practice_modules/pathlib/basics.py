@@ -30,4 +30,10 @@ print(PRACTICE_FILE.is_dir())
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-print(PRACTICE_FILE)
+
+#  ==== FÁJL BEOLVASÁS ====
+file_path = Path(__file__).parents[2] / "ex.txt"
+content = file_path.read_text()
+print(content)
+content_write = file_path.write_text("Ez egy teszt szöveg", encoding="utf-8")
+print(content)
