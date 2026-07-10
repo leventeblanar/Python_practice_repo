@@ -12,6 +12,34 @@ class ValidationResult:
     product: Product
     errors: list[str]
 
+def complete_validation(products: list[Product]) -> tuple[list[ValidationResult], list[ValidationResult]]:
+
+    valid_product = []
+    invalid_product = []
+
+    for index, product in enumerate(products, 1):
+        errors = []
+
+        if not product.name:
+            errors.append("hiányzó név")
+        if product.price <= 0:
+            errors.append("mínuszos/nullás ár")
+
+        result = ValidationResult(
+            row=index,
+            product=product,
+            errors=errors,
+        )
+
+        if result.errors:
+            invalid_product.append(result)
+        else:
+            valid_product.append(result)
+
+    return valid_product, invalid_product
+
+    
+
 def feladat_1():
 
     products = [
@@ -22,24 +50,8 @@ def feladat_1():
         Product(name=None, price=-100, category="office"),
     ]
 
-    valid_products = []
-    invalid_products = []
+    valid_products, invalid_products = complete_validation(products)
 
-    for index, product in enumerate(products, 1):
-
-        errors = []
-
-        if not product.name:
-            errors.append("hiányzó név")
-        if product.price <= 0:
-            errors.append("mínuszos/nullás ár")
-
-        if errors:
-            invalid_products.append(ValidationResult(row=index, product=product, errors=errors))
-        else:
-            valid_products.append(ValidationResult(row=index, product=product, errors=errors))
-
-    
     print(valid_products)
     print(invalid_products)
 
