@@ -1,0 +1,235 @@
+{
+  "orders": [
+    {
+      "order_id": "ORD-2026-0001",
+      "created_at": "2026-07-20T09:14:32Z",
+      "status": "completed",
+      "customer": {
+        "id": 4821,
+        "name": "Kovács Béla",
+        "email": "kovacs.bela@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-1001",
+          "name": "Rozé fröccs alapbor 0.75L",
+          "quantity": 12,
+          "unit_price": 1290,
+          "line_total": 15480
+        },
+        {
+          "sku": "CIKK-1042",
+          "name": "Tapadó göngyöleg raklap",
+          "quantity": 1,
+          "unit_price": 0,
+          "line_total": 0
+        }
+      ],
+      "total": 15480,
+      "shipping": {
+        "method": "futar",
+        "address": "1011 Budapest, Fő utca 1."
+      }
+    },
+    {
+      "order_id": "ORD-2026-0002",
+      "created_at": "2026-07-21T13:47:05Z",
+      "status": "processing",
+      "customer": {
+        "id": 5590,
+        "name": "Nagy Andrea",
+        "email": "nagy.andrea@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-2210",
+          "name": "Ásványvíz szénsavas 1.5L",
+          "quantity": 24,
+          "unit_price": 249,
+          "line_total": 5976
+        }
+      ],
+      "total": 5976,
+      "shipping": {
+        "method": "szemelyes_atvetel",
+        "address": null
+      }
+    },
+    {
+      "order_id": "ORD-2026-0003",
+      "created_at": "2026-07-22T08:02:19Z",
+      "status": "pending",
+      "customer": {
+        "id": 6033,
+        "name": "Szabó Gergő",
+        "email": "szabo.gergo@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-3305",
+          "name": "Kávé pörkölt szemes 1kg",
+          "quantity": 3,
+          "unit_price": 4590,
+          "line_total": 13770
+        },
+        {
+          "sku": "CIKK-3312",
+          "name": "Cukor kristály 1kg",
+          "quantity": 5,
+          "unit_price": 389,
+          "line_total": 1945
+        },
+        {
+          "sku": "CIKK-3320",
+          "name": "Tej UHT 2.8% 1L",
+          "quantity": 6,
+          "unit_price": 429,
+          "line_total": 2574
+        }
+      ],
+      "total": 18289,
+      "shipping": {
+        "method": "futar",
+        "address": "6720 Szeged, Kárász utca 12."
+      }
+    },
+    {
+      "order_id": "ORD-2026-0004",
+      "created_at": "2026-07-22T15:23:41Z",
+      "status": "completed",
+      "customer": {
+        "id": 6188,
+        "name": "Tóth Krisztina",
+        "email": "toth.krisztina@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-4401",
+          "name": "Liszt BL-55 1kg",
+          "quantity": 10,
+          "unit_price": 319,
+          "line_total": 3190
+        },
+        {
+          "sku": "CIKK-4415",
+          "name": "Napraforgó étolaj 1L",
+          "quantity": 4,
+          "unit_price": 899,
+          "line_total": 3596
+        }
+      ],
+      "total": 6786,
+      "shipping": {
+        "method": "futar",
+        "address": "4025 Debrecen, Piac utca 45."
+      }
+    },
+    {
+      "order_id": "ORD-2026-0005",
+      "created_at": "2026-07-23T07:11:58Z",
+      "status": "cancelled",
+      "customer": {
+        "id": 6290,
+        "name": "Horváth Zoltán",
+        "email": "horvath.zoltan@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-5502",
+          "name": "Sör világos dobozos 0.5L",
+          "quantity": 48,
+          "unit_price": 399,
+          "line_total": 19152
+        }
+      ],
+      "total": 19152,
+      "shipping": {
+        "method": "szemelyes_atvetel",
+        "address": null
+      }
+    },
+    {
+      "order_id": "ORD-2026-0006",
+      "created_at": "2026-07-23T10:38:12Z",
+      "status": "processing",
+      "customer": {
+        "id": 6341,
+        "name": "Varga Eszter",
+        "email": "varga.eszter@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-6601",
+          "name": "Csokoládé tejcsokoládé 100g",
+          "quantity": 20,
+          "unit_price": 549,
+          "line_total": 10980
+        },
+        {
+          "sku": "CIKK-6620",
+          "name": "Keksz vajas 200g",
+          "quantity": 15,
+          "unit_price": 429,
+          "line_total": 6435
+        },
+        {
+          "sku": "CIKK-6635",
+          "name": "Üdítő narancs 2L",
+          "quantity": 8,
+          "unit_price": 549,
+          "line_total": 4392
+        },
+        {
+          "sku": "CIKK-1042",
+          "name": "Tapadó göngyöleg raklap",
+          "quantity": 1,
+          "unit_price": 0,
+          "line_total": 0
+        }
+      ],
+      "total": 21807,
+      "shipping": {
+        "method": "futar",
+        "address": "7621 Pécs, Király utca 22."
+      }
+    },
+    {
+      "order_id": "ORD-2026-0007",
+      "created_at": "2026-07-23T12:05:47Z",
+      "status": "pending",
+      "customer": {
+        "id": 6402,
+        "name": "Balogh Márton",
+        "email": "balogh.marton@example.hu"
+      },
+      "currency": "HUF",
+      "items": [
+        {
+          "sku": "CIKK-7701",
+          "name": "Rizs hosszú szemű 1kg",
+          "quantity": 7,
+          "unit_price": 699,
+          "line_total": 4893
+        },
+        {
+          "sku": "CIKK-7710",
+          "name": "Tészta spagetti 500g",
+          "quantity": 12,
+          "unit_price": 359,
+          "line_total": 4308
+        }
+      ],
+      "total": 9201,
+      "shipping": {
+        "method": "futar",
+        "address": "9022 Győr, Baross Gábor út 8."
+      }
+    }
+  ]
+}
