@@ -1,0 +1,5 @@
+row,order_id,customer,amount,country,errors
+4,4,Csilla,0,Austria,Invalid price
+5,5,,9,Germany,Missing customer name.
+7,7,Eszter,-4,Austria,Invalid price
+10,10,,0,Czechia,"Missing customer name., Invalid price"
