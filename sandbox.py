@@ -1,66 +1,55 @@
-def feladat_1_2():
+from dataclasses import dataclass
 
-    users = [
-    {"id": 1, "name": "Anna", "role": "admin"},
-    {"id": 2, "name": "Béla", "role": "developer"},
-    {"id": 3, "name": "Csilla", "role": "viewer"},
-    ]
+@dataclass
+class Order:
+    id: int
+    customer: str | None
+    amount: int
+    country: str
 
-    users_by_id = {}
+@dataclass
+class Errors:
+    row_id: int
+    error: str
 
-    for user in users:
-        user_id = user['id']
-        users_by_id[user_id] = user
+orders = [
+    Order(id=1, customer="Anna", amount=12000, country="Hungary"),
+    Order(id=2, customer="", amount=8000, country="Germany"),
+    Order(id=3, customer="Béla", amount=0, country="Hungary"),
+    Order(id=4, customer=None, amount=-500, country="Austria"),
+    Order(id=5, customer="Csilla", amount=15000, country="Hungary"),
+]
 
-    print(users_by_id[2]['name'])
+def validate_order(orders: list[Order]) -> tuple[list[dict], list[dict]]:
 
-    users_by_id[2].update({"role": "senior developer", "active": True})
+    valid_orders = []
+    invalid_orders = []
 
-    print(users_by_id[2])
-
-def feladat_3():
-
-    system_ids = [1, 2, 3, 4]
-    incoming_ids = [2, 3, 99]
-
-    system_ids_set = set(system_ids)
-    incoming_ids_set = set(incoming_ids)
-
-    diffs = incoming_ids_set - system_ids_set
-
-    print(diffs)
-
-def feladat_4():
-
-    products = [
-    {"name": "Laptop", "price": 300000},
-    {"name": "", "price": 150000},
-    {"name": "Mouse", "price": 8000},
-    {"name": "Keyboard", "price": 0},
-    ]
-
-    hibas_sorok = []
-    jo_sorok = []
-
-    for index, product in enumerate(products, 1):
-
+    for index, order in enumerate(orders, 1):
         errors = []
 
-        if not product['name']:
-            errors.append("Hiányzó név")
-        if product['price'] <= 0:
-            errors.append("Hibás ár")
-            
+        if not order.customer:
+            errors.append("Missing customer")
+        if order.amount <= 0:
+            errors.append("Invalid order amount")
+
         if errors:
-            hibas_sorok.append({
+            invalid_orders.append({
                 "row": index,
-                "errors": errors
+                "order": Order(order.id, order.customer, order.amount, order.country),
+                "errors": Errors(index, errors),
             })
         else:
-            jo_sorok.append({
+            valid_orders.append({
                 "row": index,
-                "info": product
+                "order": Order(order.id, order.customer, order.amount, order.country),
             })
 
-    print(hibas_sorok)
-    print(jo_sorok)
+    return valid_orders, invalid_orders
+
+
+if __name__ == '__main__':
+
+    valid_orders, invalid_orders = validate_order(orders=orders)
+
+    print(invalid_orders)
