@@ -20,7 +20,7 @@ def dict_grouping_gyak():
             statistics[country] = {
                 "count": 1,
                 "total_amount": amount,
-            }
+            } 
         else:
             statistics[country]["count"] += 1
             statistics[country]["total_amount"] += amount
