@@ -4,8 +4,7 @@ How to play blackjack:    https://bicyclecards.com/how-to-play/blackjack/
 "Standard" playing cards: https://en.wikipedia.org/wiki/Standard_52-card_deck
 """
 
-
-def value_of_card(card):
+def value_of_card(card) -> int:
     """Determine the scoring value of a card.
 
     Parameters:
@@ -19,8 +18,12 @@ def value_of_card(card):
         3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if card in {"J", "Q", "K"}:
+        return 10
+    if card == "A":
+        return 1
 
+    return int(card)
 
 def higher_card(card_one, card_two):
     """Determine which card has a higher value in the hand.
@@ -37,7 +40,15 @@ def higher_card(card_one, card_two):
         str or tuple: The resulting tuple contains both cards if they are of equal value.
     """
 
-    pass
+    card_one_value = value_of_card(card_one)
+    card_two_value = value_of_card(card_two)
+
+    if card_one_value > card_two_value:
+        return card_one
+    if card_one_value == card_two_value:
+        return (card_one, card_two)
+    
+    return card_two
 
 
 def value_of_ace(card_one, card_two):
@@ -55,8 +66,16 @@ def value_of_ace(card_one, card_two):
         int: Either 1 or 11, which is the value of the upcoming ace card.
     """
 
-    pass
+    if card_one == "A" or card_two == "A":
+        return 1
+    
+    card_one_value = value_of_card(card_one)
+    card_two_value = value_of_card(card_two)
 
+    if card_one_value + card_two_value <= 10:
+        return 11
+    
+    return 1
 
 def is_blackjack(card_one, card_two):
     """Determine if the hand is a 'natural' or 'blackjack'.
@@ -73,8 +92,13 @@ def is_blackjack(card_one, card_two):
         bool: Is the hand is a blackjack (two cards worth 21).
     """
 
-    pass
+    has_ace = card_one == "A" or card_two == "A"
+    has_ten_value_card = (
+        value_of_card(card_one) == 10
+        or value_of_card(card_two) == 10
+    )
 
+    return has_ace and has_ten_value_card
 
 def can_split_pairs(card_one, card_two):
     """Determine if a player can split their hand into two hands.
@@ -87,8 +111,7 @@ def can_split_pairs(card_one, card_two):
         bool: Can the hand be split into two pairs? (i.e. cards are of the same value).
     """
 
-    pass
-
+    return value_of_card(card_one) == value_of_card(card_two)
 
 def can_double_down(card_one, card_two):
     """Determine if a blackjack player can place a double down bet.
@@ -101,4 +124,5 @@ def can_double_down(card_one, card_two):
         bool: Can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
 
-    pass
+    hand_value = (value_of_card(card_one) + value_of_card(card_two)) 
+    return hand_value in {9, 10, 11}
