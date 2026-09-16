@@ -4,7 +4,7 @@ Python list documentation: https://docs.python.org/3/tutorial/datastructures.htm
 """
 
 
-def get_rounds(number):
+def get_rounds(number: int) -> list[int]:
     """Create a list containing the current and next two round numbers.
 
     Parameters:
@@ -14,10 +14,10 @@ def get_rounds(number):
         list: The current round number and the two that follow.
     """
 
-    pass
+    return [number, number + 1, number + 2]
 
 
-def concatenate_rounds(rounds_1, rounds_2):
+def concatenate_rounds(rounds_1: list, rounds_2: list) -> list:
     """Concatenate two lists of round numbers.
 
     Parameters:
@@ -28,10 +28,10 @@ def concatenate_rounds(rounds_1, rounds_2):
         list:  All rounds played.
     """
 
-    pass
+    return rounds_1 + rounds_2
 
 
-def list_contains_round(rounds, number):
+def list_contains_round(rounds: list, number: int):
     """Check if the list of rounds contains the specified number.
 
     Parameters:
@@ -42,10 +42,10 @@ def list_contains_round(rounds, number):
         bool: Was the round played?
     """
 
-    pass
+    return number in rounds
 
 
-def card_average(hand):
+def card_average(hand: list):
     """Calculate and returns the average card value from the list.
 
     Parameters:
@@ -55,7 +55,7 @@ def card_average(hand):
         float: The average value of the cards in the hand.
     """
 
-    pass
+    return sum(hand) / len(hand)
 
 
 def approx_average_is_average(hand):
@@ -67,8 +67,10 @@ def approx_average_is_average(hand):
     Returns:
         bool: Does one of the approximate averages equal the `true average`?
     """
-
-    pass
+    hand_average = card_average(hand)
+    first_last_average = sum([hand[0], hand[-1]]) / 2
+    middle_card = hand[len(hand) // 2]
+    return hand_average in [first_last_average, middle_card]
 
 
 def average_even_is_average_odd(hand):
@@ -81,7 +83,7 @@ def average_even_is_average_odd(hand):
         bool: Are the even and odd averages equal?
     """
 
-    pass
+    return (sum(hand[::2]) / len(hand[::2])) == (sum(hand[1::2]) / len(hand[1::2]))
 
 
 def maybe_double_last(hand):
@@ -94,4 +96,7 @@ def maybe_double_last(hand):
         list: The hand with Jacks (if present) value doubled.
     """
 
-    pass
+    if hand[-1] == 11:
+        hand[-1] = hand[-1] * 2
+
+    return hand
